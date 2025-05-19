@@ -2,6 +2,11 @@
 
 set -e
 
+# Cargar variables del entorno
+set -a
+source /app/.env
+set +a
+
 ### CONFIGURACIÓN ###
 BACKUP_DIR="/mnt/backup"
 RCLONE_REMOTE="Herinube:backup_folder"
@@ -9,8 +14,6 @@ RCLONE_CONFIG="/root/.config/rclone/rclone.conf"
 LOG_FILE="/app/log/backup.log"
 MIN_FREE_GB=1
 RETENTION_DAYS=7
-TELEGRAM_TOKEN="8021440633:AAEoInFh6cgIBjbDuMEZp9Eo6eCjB7IFhzA"
-CHAT_ID="766950914"
 
 ### DETECCIÓN DE VARIABLES ###
 BACKUP_TYPE="[MANUAL]"

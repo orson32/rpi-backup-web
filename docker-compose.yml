@@ -1,0 +1,14 @@
+version: "3"
+services:
+  rpi-backup-web:
+    build: .
+    container_name: rpi-backup-web
+    volumes:
+      - /mnt/backup:/mnt/backup        # Backup destino
+      - ./app:/app
+      - /home/orson32/.config/rclone:/root/.config/rclone  # Config de rclone
+    ports:
+      - "5000:5000"
+    environment:
+      - TZ=America/Denver
+    restart: unless-stopped
